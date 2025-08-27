@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简单表单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 14px;
+            display: none;
+        }
+
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>信息提交表单</h1>
+
+        <form action="/user/ceshi1" method="post">
+            <div class="form-group">
+                <label for="username">用户名</label>
+                <input type="text" id="username" name="username" placeholder="请输入您的用户名" required>
+            </div>
+
+            <div class="form-group">
+                <label for="密码">密码</label>
+                <input type="password" id="password" name="password" placeholder="请输入您的密码" required>
+            </div>
+
+            <button type="submit">提交信息</button>
+        </form>
+
+        <div id="message" class="message"></div>
+    </div>
+
+    <script>
+        {#document.getElementById('myForm').addEventListener('submit', function(e) {#}
+        {#    e.preventDefault(); // 阻止表单默认提交行为#}
+
+        {#    // 获取输入值#}
+        {#    const name = document.getElementById('name').value.trim();#}
+        {#    const email = document.getElementById('email').value.trim();#}
+        {#    const messageDiv = document.getElementById('message');#}
+        {#    #}
+        {#    // 简单验证#}
+        {#    if (!name || !email) {#}
+        {#        showMessage('请填写所有必填字段！', 'error');#}
+        {#        return;#}
+        {#    }#}
+        {#    #}
+        {#    // 邮箱格式验证#}
+        {#    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;#}
+        {#    if (!emailRegex.test(email)) {#}
+        {#        showMessage('请输入有效的邮箱地址！', 'error');#}
+        {#        return;#}
+        {#    }#}
+        {#    #}
+        {#    // 模拟提交成功#}
+        {#    showMessage(`提交成功！欢迎 ${name}，我们将通过 ${email} 联系您。`, 'success');#}
+        {#    #}
+        {#    // 清空表单#}
+        {#    this.reset();#}
+        {#});#}
+
+        {#function showMessage(text, type) {#}
+        {#    const messageDiv = document.getElementById('message');#}
+        {#    messageDiv.textContent = text;#}
+        {#    messageDiv.className = `message ${type}`;#}
+        {#    messageDiv.style.display = 'block';#}
+        {#    #}
+        {#    // 3秒后自动隐藏消息#}
+        {#    setTimeout(() => {#}
+        {#        messageDiv.style.display = 'none';#}
+        {#    }, 3000);#}
+        }
+    </script>
+</body>
+</html>
